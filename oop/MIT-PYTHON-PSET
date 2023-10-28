@@ -1,0 +1,29 @@
+# A function that will calculate the maximum  and the minimum number of elements in the tuble and the number words in the tuple
+
+t = ((1,'Kojo'),(2,'Kwabena'),(3,'Kofi'))
+
+def get_data(aTuple):
+# create an empty tuple to store strings
+    word = ()
+# an empty tuple to store numbers
+    num = ()
+# loop through the tuple
+    for t in aTuple:
+# add the element which is a number to the num tuple
+        num = num + (t[0],)
+# check if the string is already inside the tuple
+        if t[1] not in word:
+# if not add the string to the word tuple
+            word = word + (t[1],)
+# calculate the maximum number of element in the num tuple
+    max_num = max(num)   
+# calculate the minimum number of the element in the num tuple
+    min_num = min(num) 
+# calculate the number of words in the word tuple
+    num_words = len(word)    
+# return the min_num max_num and num_words
+    return(max_num,min_num,num_words)
+
+
+print(get_data(t))
+
