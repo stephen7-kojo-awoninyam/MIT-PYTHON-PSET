@@ -3,21 +3,30 @@ import numpy
 card = numpy.array([1,2,3,4,5,6])
 query = 5
 
+def test_location(card,query,mid):
+    mid_num = card[mid]
+    if mid_num == query:
+        if mid-1 >= 0 and card[mid-1]==query:
+            return "left"
+        else:
+            return "found"
+    elif mid_num < query:
+        return "left"
+    else:
+        return "right"    
+
 def locate_card(card,query):
     lo = 0
     hi = len(card)-1
-
     while lo <= hi:
-       
         mid = (lo + hi)//2
-
-        mid_num = card[mid]
-
-        if mid_num == query:
+        
+        results = test_location(card,query,mid)
+        if results == "found":
             return mid
-        elif mid_num < query:
+        elif results == "right":
             lo = mid + 1
-        elif mid_num > query:
+        elif results == "left":
             hi = mid - 1
     return -1        
 
